@@ -17,6 +17,10 @@ Superbar preferences.
 | ![Dark search results](renders/dark-search.png)          | ![Dark bottom-positioned results](renders/dark-bottom-search.png) |
 | ![Light clipboard results](renders/light-clipboard.png)  | ![Dark clipboard copied state](renders/dark-clipboard-copied.png) |
 | ![Light calculator result](renders/light-calculator.png) | ![Dark weather result](renders/dark-weather.png)                  |
+|                                                          |                                                                   |
+| ![Light compact](renders/light_compact.png)              | ![Dark compact](renders/dark_compact.png)                         |
+| ![Light default](renders/light_default.png)              | ![Dark default](renders/dark_default.png)                         |
+| ![Light large](renders/light_large.png)                  | ![Dark large](renders/dark_large.png)                             |
 
 ---
 
@@ -41,7 +45,7 @@ Superbar preferences.
 | **Adaptive Ranking**       | Apps and actions you choose can rank higher; learned ranking is resettable       |
 | **Multi-monitor Support**  | Opens on the monitor you are currently using                                     |
 | **Clipboard Controls**     | Toggle monitoring, set the history limit, or clear saved history                 |
-| **Appearance Settings**    | Set theme, colors, layout size, opacity, width, position, and result limits |
+| **Appearance Settings**    | Pick the theme, colors, opacity, width, position, and result count               |
 | **Search Source Controls** | Enable or disable each built-in source from Superbar preferences                 |
 
 ---
@@ -159,10 +163,6 @@ it. Modes turned off in Search Sources are skipped, and the Tab hint
 disappears when only All results is left. Currency and the calculator have no
 prefix to show, so they are recognized from what you type rather than switched
 into.
-The result count controls how many matches Superbar searches for and displays
-(up to 100); the visible-row limit controls how many fit in the list before it
-scrolls. Use the mouse wheel or arrow keys to reach additional rows.
-
 Web searches use Google by default. This can be changed in settings to
 DuckDuckGo, Bing, Brave Search, Ecosia, or Startpage.
 
