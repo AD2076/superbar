@@ -41,7 +41,7 @@ Superbar preferences.
 | **Adaptive Ranking**       | Apps and actions you choose can rank higher; learned ranking is resettable       |
 | **Multi-monitor Support**  | Opens on the monitor you are currently using                                     |
 | **Clipboard Controls**     | Toggle monitoring, set the history limit, or clear saved history                 |
-| **Appearance Settings**    | Pick the theme, colors, opacity, width, position, and result count               |
+| **Appearance Settings**    | Pick the theme, colors, opacity, width, position, result count, and visible rows |
 | **Search Source Controls** | Enable or disable each built-in source from Superbar preferences                 |
 
 ---
@@ -159,6 +159,10 @@ it. Modes turned off in Search Sources are skipped, and the Tab hint
 disappears when only All results is left. Currency and the calculator have no
 prefix to show, so they are recognized from what you type rather than switched
 into.
+The result count controls how many matches Superbar searches for and displays;
+the visible-row limit controls how many fit in the list before it scrolls.
+Use the mouse wheel or arrow keys to reach additional rows.
+
 Web searches use Google by default. This can be changed in settings to
 DuckDuckGo, Bing, Brave Search, Ecosia, or Startpage.
 

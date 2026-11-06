@@ -38,9 +38,17 @@ Copyright (C) 2026 Furkan
     </key>
     <key name="max-results" type="i">
       <default>8</default>
-      <range min="3" max="20"/>
+      <range min="3" max="100"/>
       <summary>Maximum Search Results</summary>
       <description>How many results to show in the search bar at once.</description>
+    </key>
+    <key name="max-visible-rows" type="i">
+      <default>6</default>
+      <range min="1" max="20"/>
+      <summary>Maximum Visible Search Rows</summary>
+      <description>
+        Maximum number of search result rows visible before scrolling.
+      </description>
     </key>
     <key name="default-search-engine" type="s">
       <default>'google'</default>

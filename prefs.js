@@ -709,7 +709,7 @@ export default class SuperbarPreferences extends ExtensionPreferences {
       subtitle: "How many results to show in the list",
       adjustment: new Gtk.Adjustment({
         lower: 3,
-        upper: 20,
+        upper: 100,
         step_increment: 1,
         page_increment: 5,
         value: settings.get_int("max-results"),
@@ -722,6 +722,25 @@ export default class SuperbarPreferences extends ExtensionPreferences {
       Gio.SettingsBindFlags.DEFAULT,
     );
     appearanceGroup.add(maxResultsRow);
+
+    const maxVisibleRowsRow = new Adw.SpinRow({
+      title: "Max Visible Result Rows",
+      subtitle: "Additional results can be reached by scrolling",
+      adjustment: new Gtk.Adjustment({
+        lower: 1,
+        upper: 20,
+        step_increment: 1,
+        page_increment: 5,
+        value: settings.get_int("max-visible-rows"),
+      }),
+    });
+    settings.bind(
+      "max-visible-rows",
+      maxVisibleRowsRow,
+      "value",
+      Gio.SettingsBindFlags.DEFAULT,
+    );
+    appearanceGroup.add(maxVisibleRowsRow);
 
     addComboSettingRow(
       appearanceGroup,

@@ -892,6 +892,8 @@ export default class SearchBar extends Extension {
       () => this._clearClipboardHistory(),
       "changed::max-results",
       () => this._refreshCurrentSearch(),
+      "changed::max-visible-rows",
+      () => this._queueResultsHeightUpdate(),
       "changed::default-search-engine",
       () => this._refreshCurrentSearch(),
       "changed::adaptive-ranking-enabled",
@@ -3996,10 +3998,29 @@ export default class SearchBar extends Extension {
       this._resultsBox.get_preferred_height(preferredWidth);
     const minimumHeight =
       this._resultsState === "rows" ? 0 : RESULTS_MIN_HEIGHT;
-    const height = Math.min(
+    let height = Math.min(
       Math.max(minimumHeight, naturalHeight),
       this._getResultsMaxHeight(),
     );
+
+    if (
+      this._resultsState === "rows" &&
+      this._resultRows.length > this._settings.get_int("max-visible-rows")
+    ) {
+      const rowHeights = this._resultRows.map(
+        (row) => row.get_preferred_height(preferredWidth)[1],
+      );
+      const allRowsHeight = rowHeights.reduce(
+        (total, rowHeight) => total + rowHeight,
+        0,
+      );
+      const visibleRowsHeight = rowHeights
+        .slice(0, this._settings.get_int("max-visible-rows"))
+        .reduce((total, rowHeight) => total + rowHeight, 0);
+      const boxSpacingAndPadding = Math.max(0, naturalHeight - allRowsHeight);
+      height = Math.min(height, boxSpacingAndPadding + visibleRowsHeight);
+    }
+
     this._setResultsHeight(height, animate);
   }
 
