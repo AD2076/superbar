@@ -709,7 +709,7 @@ export default class SearchBar extends Extension {
     const createFooterHint = (key, label) => {
       const hint = new St.BoxLayout({
         style_class: "spotlight-footer-hint",
-      orientation: Clutter.Orientation.HORIZONTAL,
+        orientation: Clutter.Orientation.HORIZONTAL,
         y_align: Clutter.ActorAlign.CENTER,
       });
       hint.add_child(
@@ -800,9 +800,6 @@ export default class SearchBar extends Extension {
 
         return Clutter.EVENT_PROPAGATE;
       },
-      this,
-    );
-    this._entry.clutter_text.connectObject(
       "text-changed",
       () => this._onTextChanged(),
       this,
@@ -2679,7 +2676,7 @@ export default class SearchBar extends Extension {
     const scores = new Map();
 
     try {
-      const matchGroups = this._appSystem.search(text) ?? [];
+      const matchGroups = Shell.AppSystem.search(text) ?? [];
       matchGroups.forEach((group, groupIndex) => {
         group.forEach((appId) => {
           scores.set(appId, 940 - groupIndex * 90);
@@ -3502,7 +3499,7 @@ export default class SearchBar extends Extension {
         row.add_style_class_name("weather-card");
 
         const infoBox = new St.BoxLayout({
-        orientation: Clutter.Orientation.VERTICAL,
+          orientation: Clutter.Orientation.VERTICAL,
           x_expand: true,
           y_align: Clutter.ActorAlign.CENTER,
         });
@@ -3584,13 +3581,13 @@ export default class SearchBar extends Extension {
       } else {
         const rowBox = new St.BoxLayout({
           style_class: "spotlight-result-row-content",
-          vertical: false,
+          orientation: Clutter.Orientation.HORIZONTAL,
           x_expand: true,
         });
         rowBox.add_child(this._createResultIcon(result));
 
         const textBox = new St.BoxLayout({
-          vertical: true,
+          orientation: Clutter.Orientation.VERTICAL,
           x_expand: true,
           y_align: Clutter.ActorAlign.CENTER,
           style_class: "spotlight-result-text",
