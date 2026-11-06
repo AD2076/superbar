@@ -2679,7 +2679,7 @@ export default class SearchBar extends Extension {
     const scores = new Map();
 
     try {
-      const matchGroups = Shell.AppSystem.search(text) ?? [];
+      const matchGroups = this._appSystem.search(text) ?? [];
       matchGroups.forEach((group, groupIndex) => {
         group.forEach((appId) => {
           scores.set(appId, 940 - groupIndex * 90);
