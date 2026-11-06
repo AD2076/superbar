@@ -865,6 +865,7 @@ export default class SearchBar extends Extension {
       this._container,
     );
     this._updateTheme();
+    this._updateLayoutStyle();
 
     this._settings.connectObject(
       "changed::superbar-toggle-shortcut",
@@ -886,6 +887,8 @@ export default class SearchBar extends Extension {
       () => this._updateTheme(),
       "changed::background-opacity",
       () => this._updateTheme(),
+      "changed::layout-style",
+      () => this._updateLayoutStyle(),
       "changed::clipboard-monitor-enabled",
       () => this._startClipboardMonitoring(),
       "changed::clipboard-history-clear-request",
@@ -4246,6 +4249,20 @@ export default class SearchBar extends Extension {
   }
 
   // --- Theme ---
+
+  _updateLayoutStyle() {
+    if (!this._container || !this._settings) return;
+
+    for (const style of ["large", "default", "compact"]) {
+      this._container.remove_style_class_name(`layout-${style}`);
+    }
+
+    const configuredStyle = this._settings.get_string("layout-style");
+    const style = ["large", "default", "compact"].includes(configuredStyle)
+      ? configuredStyle
+      : "default";
+    this._container.add_style_class_name(`layout-${style}`);
+  }
 
   _updateTheme() {
     // Main.getStyleVariant() reflects the shell chrome rather than the system

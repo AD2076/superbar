@@ -346,6 +346,82 @@
 }
 
 /* ---------------------------------------------------------------------
+ * 5a. Layout size variants
+ * --------------------------------------------------------------------- */
+
+.layout-default.spotlight-container .spotlight-input-row {
+    height: 64px;
+}
+
+.layout-default.spotlight-container .spotlight-result-row:not(.answer):not(.weather-card) {
+    min-height: 46px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.layout-default.spotlight-container .spotlight-result-subtitle,
+.layout-default.spotlight-container .spotlight-answer-context,
+.layout-default.spotlight-container .weather-desc,
+.layout-default.spotlight-container .weather-details {
+    font-size: 13px;
+}
+
+.layout-default.spotlight-container .spotlight-result-row.answer {
+    min-height: 60px;
+}
+
+.layout-default.spotlight-container .spotlight-result-row.weather-card {
+    min-height: 50px;
+}
+
+.layout-large.spotlight-container .spotlight-input-row {
+    height: 72px;
+}
+
+.layout-large.spotlight-container .spotlight-entry,
+.layout-large.spotlight-container .spotlight-entry:focus {
+    font-size: 28px;
+}
+
+.layout-large.spotlight-container .spotlight-result-row:not(.answer):not(.weather-card) {
+    min-height: 54px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.layout-large.spotlight-container .spotlight-result-icon {
+    icon-size: 36px;
+}
+
+.layout-large.spotlight-container .spotlight-result-label,
+.layout-large.spotlight-container .weather-city {
+    font-size: 18px;
+}
+
+.layout-large.spotlight-container .spotlight-result-subtitle,
+.layout-large.spotlight-container .spotlight-answer-context,
+.layout-large.spotlight-container .weather-desc,
+.layout-large.spotlight-container .weather-details {
+    font-size: 14px;
+}
+
+.layout-large.spotlight-container .spotlight-result-row.answer {
+    min-height: 72px;
+}
+
+.layout-large.spotlight-container .spotlight-result-row.answer .spotlight-result-label {
+    font-size: 36px;
+}
+
+.layout-large.spotlight-container .spotlight-result-row.weather-card {
+    min-height: 62px;
+}
+
+.layout-large.spotlight-container .weather-temp {
+    font-size: 40px;
+}
+
+/* ---------------------------------------------------------------------
  * 6. Compact keyboard footer
  * --------------------------------------------------------------------- */
 

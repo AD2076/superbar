@@ -41,7 +41,7 @@ Superbar preferences.
 | **Adaptive Ranking**       | Apps and actions you choose can rank higher; learned ranking is resettable       |
 | **Multi-monitor Support**  | Opens on the monitor you are currently using                                     |
 | **Clipboard Controls**     | Toggle monitoring, set the history limit, or clear saved history                 |
-| **Appearance Settings**    | Pick the theme, colors, opacity, width, position, result count, and visible rows |
+| **Appearance Settings**    | Set theme, colors, layout size, opacity, width, position, and result limits |
 | **Search Source Controls** | Enable or disable each built-in source from Superbar preferences                 |
 
 ---

@@ -50,6 +50,11 @@ Copyright (C) 2026 Furkan
         Maximum number of search result rows visible before scrolling.
       </description>
     </key>
+    <key name="layout-style" type="s">
+      <default>'default'</default>
+      <summary>Layout Style</summary>
+      <description>Choose the size of the Superbar interface.</description>
+    </key>
     <key name="default-search-engine" type="s">
       <default>'google'</default>
       <summary>Default Search Engine</summary>
@@ -153,7 +158,7 @@ Copyright (C) 2026 Furkan
     </key>
     <key name="background-opacity" type="i">
       <default>90</default>
-      <range min="65" max="100"/>
+      <range min="10" max="100"/>
       <summary>Background Opacity</summary>
       <description>Opacity percentage of the Superbar background surface.</description>
     </key>
