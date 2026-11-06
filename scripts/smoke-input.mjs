@@ -66,6 +66,7 @@ const state = `
     query: superbar._queryText(),
     chip: superbar._modeChipLabel.text,
     mode: superbar._modeLabel.text,
+    results: superbar._results.map((result) => result.label),
   };
 })()`;
 
@@ -141,6 +142,15 @@ const CHECKS = [
     open: openBar(),
     input: clickInsideBar,
     expect: { open: true },
+  },
+  {
+    name: "typing automatically starts a search",
+    open: openBar(),
+    input: `(() => {
+      globalThis.__smoke.superbar._entry.set_text("2 + 2");
+      return "typed";
+    })()`,
+    expect: { open: true, query: "2 + 2", results: ["= 4"] },
   },
   {
     name: "Tab moves to the next mode",

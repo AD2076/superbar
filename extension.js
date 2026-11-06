@@ -800,6 +800,9 @@ export default class SearchBar extends Extension {
 
         return Clutter.EVENT_PROPAGATE;
       },
+      this,
+    );
+    this._entry.clutter_text.connectObject(
       "text-changed",
       () => this._onTextChanged(),
       this,
