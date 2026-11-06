@@ -275,7 +275,7 @@ wm.set_strv("activate-window-menu", ["<Alt>space"]);
 Gio.Settings.sync();
 
 function setShortcut(accel) {
-  settings.set_strv("toggle-shortcut", [accel]);
+  settings.set_strv("superbar-toggle-shortcut", [accel]);
   keybindingRow.syncState();
 }
 

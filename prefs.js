@@ -451,7 +451,7 @@ export default class SuperbarPreferences extends ExtensionPreferences {
     });
     shortcutPage.add(shortcutGroup);
 
-    const row = new KeybindingRow(settings, "toggle-shortcut", {
+    const row = new KeybindingRow(settings, "superbar-toggle-shortcut", {
       title: "Toggle Superbar",
       subtitle: "Click the edit button and press your desired key combination",
     });

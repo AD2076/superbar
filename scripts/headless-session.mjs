@@ -212,7 +212,7 @@ export class HeadlessSession {
     if (keys.has("conflict-prompt-done")) {
       this.setExtensionSetting("conflict-prompt-done", "true");
     } else if (keys.has("conflict-prompt-accel")) {
-      const accel = this.readExtensionSetting("toggle-shortcut").match(/'([^']+)'/)?.[1];
+      const accel = this.readExtensionSetting("superbar-toggle-shortcut").match(/'([^']+)'/)?.[1];
       if (accel) this.setExtensionSetting("conflict-prompt-accel", accel);
     } else {
       console.warn("No conflict-prompt key found; a render may catch the dialog.");
