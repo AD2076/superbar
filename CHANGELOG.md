@@ -20,6 +20,11 @@ Releases are cut by pushing a `v*` tag, which triggers the packaging workflow.
 
 ### Changed
 
+- The interface is more compact: the search input is shorter, result rows take
+  less vertical space, and supporting text is slightly smaller.
+- Search result count and visible rows are now configurable independently.
+  The result limit can be raised to 100, while the visible-row limit controls
+  how many results fit before scrolling.
 - The headless-Shell setup the showcase renderer used moved to
   `scripts/headless-session.mjs`, so the renderer and the smoke test share one
   copy instead of growing two that drift.
