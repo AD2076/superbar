@@ -704,12 +704,25 @@ export default class SuperbarPreferences extends ExtensionPreferences {
     });
     shortcutPage.add(appearanceGroup);
 
+    addComboSettingRow(
+      appearanceGroup,
+      settings,
+      "layout-style",
+      "Layout Style",
+      "Choose between a larger, default, or more compact interface",
+      [
+        { key: "large", label: "Large" },
+        { key: "default", label: "Default" },
+        { key: "compact", label: "Compact" },
+      ],
+    );
+
     const maxResultsRow = new Adw.SpinRow({
       title: "Max Search Results",
       subtitle: "How many results to show in the list",
       adjustment: new Gtk.Adjustment({
         lower: 3,
-        upper: 20,
+        upper: 100,
         step_increment: 1,
         page_increment: 5,
         value: settings.get_int("max-results"),
@@ -722,6 +735,25 @@ export default class SuperbarPreferences extends ExtensionPreferences {
       Gio.SettingsBindFlags.DEFAULT,
     );
     appearanceGroup.add(maxResultsRow);
+
+    const maxVisibleRowsRow = new Adw.SpinRow({
+      title: "Max Visible Result Rows",
+      subtitle: "Additional results can be reached by scrolling",
+      adjustment: new Gtk.Adjustment({
+        lower: 1,
+        upper: 20,
+        step_increment: 1,
+        page_increment: 5,
+        value: settings.get_int("max-visible-rows"),
+      }),
+    });
+    settings.bind(
+      "max-visible-rows",
+      maxVisibleRowsRow,
+      "value",
+      Gio.SettingsBindFlags.DEFAULT,
+    );
+    appearanceGroup.add(maxVisibleRowsRow);
 
     addComboSettingRow(
       appearanceGroup,
@@ -779,29 +811,34 @@ export default class SuperbarPreferences extends ExtensionPreferences {
     );
     updateColorPresetSensitivity();
 
-    const backgroundOpacityRow = new Adw.SpinRow({
+    const backgroundOpacityRow = new Adw.ActionRow({
       title: "Background Opacity",
-      subtitle: "Control how much of the desktop shows through Superbar",
-      adjustment: new Gtk.Adjustment({
-        lower: 65,
-        upper: 100,
-        step_increment: 1,
-        page_increment: 5,
-        value: settings.get_int("background-opacity"),
-      }),
+      subtitle: "Control how much of the desktop shows through Superbar (10–100%)",
     });
-    backgroundOpacityRow.add_suffix(
-      new Gtk.Label({
-        label: "%",
-        css_classes: ["dim-label"],
-      }),
-    );
-    settings.bind(
-      "background-opacity",
-      backgroundOpacityRow,
-      "value",
-      Gio.SettingsBindFlags.DEFAULT,
-    );
+    const backgroundOpacityAdjustment = new Gtk.Adjustment({
+      lower: 10,
+      upper: 100,
+      step_increment: 1,
+      page_increment: 5,
+      value: settings.get_int("background-opacity"),
+    });
+    const backgroundOpacityScale = new Gtk.Scale({
+      orientation: Gtk.Orientation.HORIZONTAL,
+      adjustment: backgroundOpacityAdjustment,
+      draw_value: true,
+      value_pos: Gtk.PositionType.RIGHT,
+      hexpand: true,
+      width_request: 180,
+      valign: Gtk.Align.CENTER,
+    });
+    backgroundOpacityScale.set_digits(0);
+    backgroundOpacityAdjustment.connect("value-changed", () => {
+      const opacity = Math.round(backgroundOpacityAdjustment.get_value());
+      if (settings.get_int("background-opacity") !== opacity) {
+        settings.set_int("background-opacity", opacity);
+      }
+    });
+    backgroundOpacityRow.add_suffix(backgroundOpacityScale);
     appearanceGroup.add(backgroundOpacityRow);
 
     const barWidthRow = new Adw.SpinRow({

@@ -103,7 +103,9 @@ test("background opacity is limited to the supported range", () => {
       opacityPercentage,
     }).opacity;
 
-  assert.equal(appearanceAt(20), 0.65);
+  assert.equal(appearanceAt(0), 0.1);
+  assert.equal(appearanceAt(10), 0.1);
+  assert.equal(appearanceAt(20), 0.2);
   assert.equal(appearanceAt(90), 0.9);
   assert.equal(appearanceAt(140), 1);
 });

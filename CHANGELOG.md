@@ -10,6 +10,7 @@ Releases are cut by pushing a `v*` tag, which triggers the packaging workflow.
 
 ### Added
 
+- Appearance preferences now offer Large, Default, and Compact layout sizes.
 - `make smoke` drives the installed extension with real keyboard, pointer and
   touch events in a throwaway headless Shell and asserts what the bar did.
   The touch dismissal bug fixed in 1.3.1 was invisible to both reading and the
@@ -20,6 +21,11 @@ Releases are cut by pushing a `v*` tag, which triggers the packaging workflow.
 
 ### Changed
 
+- The interface is more compact: the search input is shorter, result rows take
+  less vertical space, and supporting text is slightly smaller.
+- Search result count and visible rows are now configurable independently.
+  The result limit can be raised to 100, while the visible-row limit controls
+  how many results fit before scrolling.
 - The headless-Shell setup the showcase renderer used moved to
   `scripts/headless-session.mjs`, so the renderer and the smoke test share one
   copy instead of growing two that drift.
@@ -31,8 +37,10 @@ Releases are cut by pushing a `v*` tag, which triggers the packaging workflow.
 - GNOME Shell 51 compatibility: replace the removed `St.BoxLayout.vertical`
   property with `orientation` throughout the launcher and result cards, and
   update the input smoke test to use the current Clutter backend API.
+  (thanks to [kem-a (Arnis K)](https://github.com/kem-a))
 - Handle launcher keys during event capture so GNOME Shell 51's text key
   controller does not consume Backspace before it can clear the mode chip.
+  (thanks to [kem-a (Arnis K)](https://github.com/kem-a))
 - `make unit-gtk`, and so `make test`, could stop partway through and wait for
   a keypress. Its `waitFor` helper pumped the main loop with a blocking
   iteration, and both conditions it waits on — the dialog taking focus, and

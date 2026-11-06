@@ -179,6 +179,6 @@ export function getSurfaceAppearance({
   return {
     variant,
     color: getSurfaceColor(variant, presetKey),
-    opacity: Math.min(1, Math.max(0.65, opacityPercentage / 100)),
+    opacity: Math.min(1, Math.max(0.1, opacityPercentage / 100)),
   };
 }
