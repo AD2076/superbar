@@ -20,7 +20,7 @@ Superbar preferences.
 |                                                          |                                                                   |
 | ![Light compact](renders/light_compact.png)              | ![Dark compact](renders/dark_compact.png)                         |
 | ![Light default](renders/light_default.png)              | ![Dark default](renders/dark_default.png)                         |
-| ![Light large](renders/light_large.png)                  | ![Dark compact](renders/dark_compact.png)                         |
+| ![Light large](renders/light_large.png)                  | ![Dark large](renders/dark_large.png)                             |
 
 ---
 
