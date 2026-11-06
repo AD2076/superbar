@@ -374,6 +374,48 @@
     min-height: 50px;
 }
 
+.layout-compact.spotlight-container .spotlight-entry,
+.layout-compact.spotlight-container .spotlight-entry:focus {
+    font-size: 21px;
+}
+
+.layout-compact.spotlight-container .spotlight-mode-label,
+.layout-compact.spotlight-container .spotlight-result-subtitle,
+.layout-compact.spotlight-container .spotlight-result-metadata,
+.layout-compact.spotlight-container .spotlight-result-copy,
+.layout-compact.spotlight-container .spotlight-answer-context,
+.layout-compact.spotlight-container .spotlight-result-row.answer .spotlight-result-subtitle,
+.layout-compact.spotlight-container .weather-desc,
+.layout-compact.spotlight-container .weather-details {
+    font-size: 11px;
+}
+
+.layout-compact.spotlight-container .spotlight-mode-chip-label {
+    font-size: 15px;
+}
+
+.layout-compact.spotlight-container .spotlight-status-label {
+    font-size: 13px;
+}
+
+.layout-compact.spotlight-container .spotlight-result-label,
+.layout-compact.spotlight-container .weather-city {
+    font-size: 14px;
+}
+
+.layout-compact.spotlight-container .spotlight-result-row.answer .spotlight-result-label {
+    font-size: 28px;
+}
+
+.layout-compact.spotlight-container .weather-temp {
+    font-size: 30px;
+}
+
+.layout-compact.spotlight-container .spotlight-footer-key,
+.layout-compact.spotlight-container .spotlight-footer-label {
+    font-size: 10px;
+}
+
 .layout-large.spotlight-container .spotlight-input-row {
     height: 72px;
 }
