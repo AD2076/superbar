@@ -17,6 +17,10 @@ Superbar preferences.
 | ![Dark search results](renders/dark-search.png)          | ![Dark bottom-positioned results](renders/dark-bottom-search.png) |
 | ![Light clipboard results](renders/light-clipboard.png)  | ![Dark clipboard copied state](renders/dark-clipboard-copied.png) |
 | ![Light calculator result](renders/light-calculator.png) | ![Dark weather result](renders/dark-weather.png)                  |
+|                                                          |                                                                   |
+| ![Light compact](renders/light_compact.png)              | ![Dark compact](renders/dark_compact.png)                         |
+| ![Light default](renders/light_default.png)              | ![Dark default](renders/dark_default.png)                         |
+| ![Light large](renders/light_large.png)                  | ![Dark compact](renders/dark_compact.png)                         |
 
 ---
 
